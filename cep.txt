@@ -1,0 +1,28 @@
+Hello Team,
+
+We have an IcM, where Customer is looking for RCA, need CRP Team help to figure out what caused the issue.
+
+IcM Link: Incident 174367115 : GPU cluster cannot start
+Issue: Cluster start up failed three times, cannot be able to start GPU cluster. We have raised a case with Databricks, they said that
+Update from Databricks:
+•	Databricks team investigated the logs and found out the cluster launch failed due to driver node placement failure due to transient network issue and the issue got mitigated itself in 30 mins.
+•	Based on the logs available, the failure is caused by VM bootstrap failure. As part of this step, it executes "/home/ubuntu/gpu/deviceQuery " to check for CUDA devices present in the system for the GPU instances. This seems to have failed with below error. This has happened only during this failure window. Unfortunately, we are not able to reproduce it and we couldn't find occurrence of it post this first occurrence.
+          /home/ubuntu/gpu/deviceQuery Starting...
+          CUDA Device Query (Runtime API) version (CUDART static linking)
+          cudaGetDeviceCount returned 38
+          -> no CUDA-capable device is detected
+          Result = FAIL
+
+We have the below details for Investigation:
+1) Region: SouthEastAsia
+2) Subscription Id: d3c9771e-8c63-4bc6-b62c-27dac86147d2
+3) CRP resource's resource group name: databricks-rg-dev-life-etl-a3dhjnnu4cje2
+4) CRP resource name (i.e. name of the VM, name of the VM ScaletSet etc.): 
+Cluster Name :data_integration_cluster_gpu 
+Cluster ID :0131-034543-dump634 
+VM Name :6302ef74562a47aa990a1e9dd8e095e6
+5) Exact time of the API call in UTC: 02/07/2020 01:16:00 UTC to 02/07/2020 02:03:00 UTC
+Please go through the IcM for more details and let us know if you need more info.
+
+Thanks & Regards
+Ramu Dammu
